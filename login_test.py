@@ -27,6 +27,7 @@ def is_login():
     else:
         return True
 
+# 获取xsrf
 def get_xsrf():
     response = session.get("https://www.zhihu.com",headers=header)
     regex = re.compile(r'name="_xsrf" value="(.*?)"')
@@ -36,6 +37,7 @@ def get_xsrf():
     else:
         return ""
 
+# 获取验证码
 def get_captcha():
     import time
     t = str(int(time.time()*1000))
@@ -55,6 +57,7 @@ def get_captcha():
     #
     # return input("请输入验证吗：")
 
+# 获取验证码坐标
 def get_captcha_position():
     from zheye import zheye
     z = zheye()
@@ -62,12 +65,14 @@ def get_captcha_position():
     print(positions)
     return positions
 
+# 获取知乎首页
 def get_index():
     response = session.get("https://www.zhihu.com",headers=header)
     with open("index_page.html","wb") as f:
         f.write(response.text.encode("utf-8"))
     print("ok")
 
+# 登陆知乎
 def zhihu_login(account, password):
     if re.match("^1\d{10}",account):
         print("手机号登录")
@@ -116,7 +121,7 @@ def zhihu_login(account, password):
     print(response_text.json())
     session.cookies.save()
 
-# zhihu_login("952718180@qq.com","WXK1991327")
+zhihu_login("Username","Password")
 get_index()
 res = is_login()
 print (res)
