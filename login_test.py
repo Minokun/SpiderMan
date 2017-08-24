@@ -10,12 +10,11 @@ try:
 except:
     print("cookie未能加载")
 
-agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36"
 header = {
     "HOST":"www.zhihu.com",
     "Referer":"https://www.zhihu.com",
     "Origin":"https://www.zhihu.com",
-    "User-Agent":agent
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36"
 }
 
 # 判断是否登陆
